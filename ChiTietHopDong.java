@@ -56,8 +56,8 @@ public class ChiTietHopDong {
     }
   
     public void xuat() {
-        System.out.println("Địa điểm: " + diaDiemLamViec 
-                         + " | Bảo hiểm: " + cheDoBaoHiem 
-                         + " | Lương cơ bản: " + String.format("%,.0f VNĐ", luongCoBan));
+        System.out.println("Dia diem: " + diaDiemLamViec 
+                         + " | Bao hiem: " + cheDoBaoHiem 
+                         + " | Luong co ban: " + String.format("%,.0f VNĐ", luongCoBan));
     }
 }
