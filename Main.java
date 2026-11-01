@@ -1,162 +1,397 @@
+
 package quanlynhansu;
 
 import java.util.Scanner;
 
 public class Main {
+
+    static Scanner sc = new Scanner(System.in);
+
+    // ==================================================
+    // 1. KHAI BÁO 5 DANH SÁCH BAN ĐẦU
+    // ==================================================
+
+    static DanhSachNhanVien qlNV = new DanhSachNhanVien();
+    static DanhSachChucVu qlCV = new DanhSachChucVu();
+    static DanhSachPhongBan qlPB = new DanhSachPhongBan();
+    static DanhSachHopDong qlHD = new DanhSachHopDong();
+    static DanhSachChamCong qlCC = new DanhSachChamCong();
+
+    // ==================================================
+    // 2. KHAI BÁO 15 DANH SÁCH MỚI
+    // ==================================================
+
+    static DanhSachHopDongLaoDong qlHDLD =
+            new DanhSachHopDongLaoDong();
+
+    static DanhSachCaLamViec qlCa =
+            new DanhSachCaLamViec();
+
+    static DanhSachLichLamViec qlLich =
+            new DanhSachLichLamViec();
+
+    static DanhSachPhanCongCongViec qlPC =
+            new DanhSachPhanCongCongViec();
+
+    static DanhSachKyLuat qlKL =
+            new DanhSachKyLuat();
+
+    static DanhSachChiTietLuong qlCTL =
+            new DanhSachChiTietLuong();
+
+    static DanhSachThuong qlThuong =
+            new DanhSachThuong();
+
+    static DanhSachBaoHiem qlBH =
+            new DanhSachBaoHiem();
+
+    static DanhSachNghiPhep qlNP =
+            new DanhSachNghiPhep();
+
+    static DanhSachUngVien qlUV =
+            new DanhSachUngVien();
+
+    static DanhSachTinTuyenDung qlTTD =
+            new DanhSachTinTuyenDung();
+
+    static DanhSachHoSoUngTuyen qlHS =
+            new DanhSachHoSoUngTuyen();
+
+    static DanhSachBuoiPhongVan qlPV =
+            new DanhSachBuoiPhongVan();
+
+    static DanhSachKhoaDaoTao qlKDT =
+            new DanhSachKhoaDaoTao();
+
+    static DanhSachKetQuaDaoTao qlKQDT =
+            new DanhSachKetQuaDaoTao();
+
+
+    // ==================================================
+    // 3. HÀM MAIN
+    // ==================================================
+
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
 
-        // Khởi tạo các danh sách
-        DanhSachNhanVien qlNV = new DanhSachNhanVien();
-        DanhSachChucVu qlCV = new DanhSachChucVu();
-        DanhSachPhongBan qlPB = new DanhSachPhongBan();
-        DanhSachHopDong qlHD = new DanhSachHopDong();
-        DanhSachChamCong qlCC = new DanhSachChamCong();
+        // Đọc dữ liệu từ tất cả các file khi chạy chương trình
+        docTatCaFile();
 
-        // Tự động tải dữ liệu từ file khi khởi động chương trình
+        int chon;
+
+        do {
+            menuChinh();
+
+            chon = nhapSoNguyen("Nhap lua chon: ");
+
+            switch (chon) {
+
+                // ------------------------------------------
+                // 5 MỤC QUẢN LÝ BAN ĐẦU
+                // ------------------------------------------
+
+                case 1:
+                    menuQuanLy(qlNV, "QUAN LY NHAN VIEN");
+                    break;
+
+                case 2:
+                    menuQuanLy(qlCV, "QUAN LY CHUC VU");
+                    break;
+
+                case 3:
+                    menuQuanLy(qlPB, "QUAN LY PHONG BAN");
+                    break;
+
+                case 4:
+                    menuQuanLy(qlHD, "QUAN LY HOP DONG");
+                    break;
+
+                case 5:
+                    menuQuanLy(qlCC, "QUAN LY CHAM CONG");
+                    break;
+
+                // ------------------------------------------
+                // 15 MỤC QUẢN LÝ MỚI
+                // ------------------------------------------
+
+                case 6:
+                    menuQuanLy(qlHDLD, "QUAN LY HOP DONG LAO DONG");
+                    break;
+
+                case 7:
+                    menuQuanLy(qlCa, "QUAN LY CA LAM VIEC");
+                    break;
+
+                case 8:
+                    menuQuanLy(qlLich, "QUAN LY LICH LAM VIEC");
+                    break;
+
+                case 9:
+                    menuQuanLy(qlPC, "QUAN LY PHAN CONG CONG VIEC");
+                    break;
+
+                case 10:
+                    menuQuanLy(qlKL, "QUAN LY KY LUAT");
+                    break;
+
+                case 11:
+                    menuQuanLy(qlCTL, "QUAN LY CHI TIET LUONG");
+                    break;
+
+                case 12:
+                    menuQuanLy(qlThuong, "QUAN LY KHEN THUONG");
+                    break;
+
+                case 13:
+                    menuQuanLy(qlBH, "QUAN LY BAO HIEM");
+                    break;
+
+                case 14:
+                    menuQuanLy(qlNP, "QUAN LY NGHI PHEP");
+                    break;
+
+                case 15:
+                    menuQuanLy(qlUV, "QUAN LY UNG VIEN");
+                    break;
+
+                case 16:
+                    menuQuanLy(qlTTD, "QUAN LY TIN TUYEN DUNG");
+                    break;
+
+                case 17:
+                    menuQuanLy(qlHS, "QUAN LY HO SO UNG TUYEN");
+                    break;
+
+                case 18:
+                    menuQuanLy(qlPV, "QUAN LY BUOI PHONG VAN");
+                    break;
+
+                case 19:
+                    menuQuanLy(qlKDT, "QUAN LY KHOA DAO TAO");
+                    break;
+
+                case 20:
+                    menuQuanLy(qlKQDT, "QUAN LY KET QUA DAO TAO");
+                    break;
+
+                // ------------------------------------------
+                // LƯU DỮ LIỆU
+                // ------------------------------------------
+
+                case 21:
+                    ghiTatCaFile();
+                    break;
+
+                // ------------------------------------------
+                // THOÁT CHƯƠNG TRÌNH
+                // ------------------------------------------
+
+                case 0:
+                    ghiTatCaFile();
+                    System.out.println("Da luu du lieu!");
+                    System.out.println("Thoat chuong trinh!");
+                    break;
+
+                default:
+                    System.out.println("Lua chon khong hop le!");
+            }
+
+        } while (chon != 0);
+    }
+
+
+    // ==================================================
+    // 4. MENU CHÍNH
+    // ==================================================
+
+    public static void menuChinh() {
+
+        System.out.println("\n==============================================");
+        System.out.println("       CHUONG TRINH QUAN LY NHAN SU");
+        System.out.println("==============================================");
+
+        System.out.println("1.  Quan ly nhan vien");
+        System.out.println("2.  Quan ly chuc vu");
+        System.out.println("3.  Quan ly phong ban");
+        System.out.println("4.  Quan ly hop dong");
+        System.out.println("5.  Quan ly cham cong");
+
+        System.out.println("----------------------------------------------");
+
+        System.out.println("6.  Quan ly hop dong lao dong");
+        System.out.println("7.  Quan ly ca lam viec");
+        System.out.println("8.  Quan ly lich lam viec");
+        System.out.println("9.  Quan ly phan cong cong viec");
+        System.out.println("10. Quan ly ky luat");
+        System.out.println("11. Quan ly chi tiet luong");
+        System.out.println("12. Quan ly thuong");
+        System.out.println("13. Quan ly bao hiem");
+        System.out.println("14. Quan ly nghi phep");
+        System.out.println("15. Quan ly ung vien");
+        System.out.println("16. Quan ly tin tuyen dung");
+        System.out.println("17. Quan ly ho so ung tuyen");
+        System.out.println("18. Quan ly buoi phong van");
+        System.out.println("19. Quan ly khoa dao tao");
+        System.out.println("20. Quan ly ket qua dao tao");
+
+        System.out.println("----------------------------------------------");
+
+        System.out.println("21. Luu tat ca du lieu");
+        System.out.println("0.  Luu va thoat chuong trinh");
+
+        System.out.println("==============================================");
+    }
+
+
+    // ==================================================
+    // 5. MENU QUẢN LÝ DÙNG CHUNG CHO CÁC DANH SÁCH
+    // ==================================================
+
+    public static void menuQuanLy(IThaoTac ds, String ten) {
+
+        int chon;
+
+        do {
+            System.out.println("\n==============================================");
+            System.out.println("       " + ten);
+            System.out.println("==============================================");
+
+            System.out.println("1. Them");
+            System.out.println("2. Xuat danh sach");
+            System.out.println("3. Sua");
+            System.out.println("4. Xoa");
+            System.out.println("5. Tim kiem");
+            System.out.println("0. Quay lai menu chinh");
+
+            System.out.println("==============================================");
+
+            chon = nhapSoNguyen("Nhap lua chon: ");
+
+            switch (chon) {
+
+                case 1:
+                    ds.them();
+                    break;
+
+                case 2:
+                    ds.xuat();
+                    break;
+
+                case 3:
+                    System.out.print("Nhap ma can sua: ");
+                    String maSua = sc.nextLine();
+                    ds.sua(maSua);
+                    break;
+
+                case 4:
+                    System.out.print("Nhap ma can xoa: ");
+                    String maXoa = sc.nextLine();
+                    ds.xoa(maXoa);
+                    break;
+
+                case 5:
+                    System.out.print("Nhap tu khoa can tim: ");
+                    String tuKhoa = sc.nextLine();
+                    ds.timKiem(tuKhoa);
+                    break;
+
+                case 0:
+                    System.out.println("Quay lai menu chinh!");
+                    break;
+
+                default:
+                    System.out.println("Lua chon khong hop le!");
+            }
+
+        } while (chon != 0);
+    }
+
+
+    // ==================================================
+    // 6. HÀM NHẬP SỐ NGUYÊN
+    // ==================================================
+
+    public static int nhapSoNguyen(String thongBao) {
+
+        while (true) {
+            try {
+                System.out.print(thongBao);
+                return Integer.parseInt(sc.nextLine());
+
+            } catch (NumberFormatException e) {
+                System.out.println("Vui long nhap so nguyen!");
+            }
+        }
+    }
+
+
+    // ==================================================
+    // 7. ĐỌC TẤT CẢ DỮ LIỆU TỪ FILE
+    // ==================================================
+
+    public static void docTatCaFile() {
+
+        System.out.println("\n========== DOC DU LIEU TU FILE ==========");
+
+        // 5 danh sách ban đầu
         FileNhanVien.docFile(qlNV, "nhanvien.txt");
         FileChucVu.docFile(qlCV, "chucvu.txt");
         FilePhongBan.docFile(qlPB, "phongban.txt");
         FileHopDong.docFile(qlHD, "hopdong.txt");
         FileChamCong.docFile(qlCC, "chamcong.txt");
 
-        while (true) {
-            System.out.println("\n================ HE THONG QUAN LY NHAN SU ================");
-            System.out.println("1. Quan ly Nhan vien (Thanh vien 1 & 2)");
-            System.out.println("2. Quan ly Chuc vu (Thanh vien 2)");
-            System.out.println("3. Quan ly Phong ban (Thanh vien 3)");
-            System.out.println("4. Quan ly Hop dong (Thanh vien 4)");
-            System.out.println("5. Quan ly Cham cong (Thanh vien 5)");
-            System.out.println("6. Luu tat ca du lieu ra file text");
-            System.out.println("0. Thoat chuong trinh");
-            System.out.print("Moi ban chon (0-6): ");
-            int chon = Integer.parseInt(sc.nextLine());
+        // 15 danh sách mới
+        FileHopDongLaoDong.docFile(qlHDLD, "hopdonglaodong.txt");
+        FileCaLamViec.docFile(qlCa, "calamviec.txt");
+        FileLichLamViec.docFile(qlLich, "lichlamviec.txt");
+        FilePhanCongCongViec.docFile(qlPC, "phancongcongviec.txt");
+        FileKyLuat.docFile(qlKL, "kyluat.txt");
+        FileChiTietLuong.docFile(qlCTL, "chitietluong.txt");
+        FileThuong.docFile(qlThuong, "thuong.txt");
+        FileBaoHiem.docFile(qlBH, "baohiem.txt");
+        FileNghiPhep.docFile(qlNP, "nghiphep.txt");
+        FileUngVien.docFile(qlUV, "ungvien.txt");
+        FileTinTuyenDung.docFile(qlTTD, "tintuyendung.txt");
+        FileHoSoUngTuyen.docFile(qlHS, "hosoungtuyen.txt");
+        FileBuoiPhongVan.docFile(qlPV, "buoiphongvan.txt");
+        FileKhoaDaoTao.docFile(qlKDT, "khoadaotao.txt");
+        FileKetQuaDaoTao.docFile(qlKQDT, "ketquadaotao.txt");
 
-            switch (chon) {
-                case 1:
-                    menuNhanVien(qlNV, sc);
-                    break;
-                case 2:
-                    menuChucVu(qlCV, sc);
-                    break;
-                case 3:
-                    menuPhongBan(qlPB, sc);
-                    break;
-                case 4:
-                    menuHopDong(qlHD, sc);
-                    break;
-                case 5:
-                    menuChamCong(qlCC, sc);
-                    break;
-                case 6:
-                    FileNhanVien.ghiFile(qlNV, "nhanvien.txt");
-                    FileChucVu.ghiFile(qlCV, "chucvu.txt");
-                    FilePhongBan.ghiFile(qlPB, "phongban.txt");
-                    FileHopDong.ghiFile(qlHD, "hopdong.txt");
-                    FileChamCong.ghiFile(qlCC, "chamcong.txt");
-                    break;
-                case 0:
-                    System.out.println("Dang luu du lieu va thoat...");
-                    FileNhanVien.ghiFile(qlNV, "nhanvien.txt");
-                    FileChucVu.ghiFile(qlCV, "chucvu.txt");
-                    FilePhongBan.ghiFile(qlPB, "phongban.txt");
-                    FileHopDong.ghiFile(qlHD, "hopdong.txt");
-                    FileChamCong.ghiFile(qlCC, "chamcong.txt");
-                    System.out.println("Tam biet!");
-                    return;
-                default:
-                    System.out.println("Lua chon khong hop le!");
-            }
-        }
+        System.out.println("========== DOC FILE HOAN TAT ==========");
     }
 
-    private static void menuNhanVien(DanhSachNhanVien qlNV, Scanner sc) {
-        System.out.println("\n--- QUAN LY NHAN VIEN ---");
-        System.out.println("1. Nhap n phan tu ban dau");
-        System.out.println("2. Xuat danh sach");
-        System.out.println("3. Them 1 nhan vien");
-        System.out.println("4. Sua theo ma");
-        System.out.println("5. Xoa theo ma");
-        System.out.println("6. Tim kiem (theo ma hoac ten)");
-        System.out.println("7. Thong ke nhan vien");
-        System.out.print("Chon: ");
-        int c = Integer.parseInt(sc.nextLine());
-        switch (c) {
-            case 1: qlNV.nhapNPhanTu(sc); break;
-            case 2: qlNV.xuat(); break;
-            case 3: qlNV.them(); break;
-            case 4:
-                System.out.print("Nhap ma NV can sua: ");
-                qlNV.sua(sc.nextLine());
-                break;
-            case 5:
-                System.out.print("Nhap ma NV can xoa: ");
-                qlNV.xoa(sc.nextLine());
-                break;
-            case 6:
-                System.out.print("Nhap tu khoa tim kiem: ");
-                qlNV.timKiem(sc.nextLine());
-                break;
-            case 7: qlNV.thongKe(); break;
-        }
-    }
 
-    private static void menuChucVu(DanhSachChucVu qlCV, Scanner sc) {
-        System.out.println("\n--- QUAN LY CHUC VU ---");
-        System.out.println("1. Xuat danh sach | 2. Them | 3. Sua | 4. Xoa | 5. Tim kiem");
-        System.out.print("Chon: ");
-        int c = Integer.parseInt(sc.nextLine());
-        switch (c) {
-            case 1: qlCV.xuat(); break;
-            case 2: qlCV.them(); break;
-            case 3: System.out.print("Nhap ma CV: "); qlCV.sua(sc.nextLine()); break;
-            case 4: System.out.print("Nhap ma CV: "); qlCV.xoa(sc.nextLine()); break;
-            case 5: System.out.print("Tu khoa: "); qlCV.timKiem(sc.nextLine()); break;
-        }
-    }
+    // ==================================================
+    // 8. GHI TẤT CẢ DỮ LIỆU VÀO FILE
+    // ==================================================
 
-    private static void menuPhongBan(DanhSachPhongBan qlPB, Scanner sc) {
-        System.out.println("\n--- QUAN LY PHONG BAN ---");
-        System.out.println("1. Xuat danh sach | 2. Them | 3. Sua | 4. Xoa | 5. Tim kiem");
-        System.out.print("Chon: ");
-        int c = Integer.parseInt(sc.nextLine());
-        switch (c) {
-            case 1: qlPB.xuat(); break;
-            case 2: qlPB.them(); break;
-            case 3: System.out.print("Nhap ma PB: "); qlPB.sua(sc.nextLine()); break;
-            case 4: System.out.print("Nhap ma PB: "); qlPB.xoa(sc.nextLine()); break;
-            case 5: System.out.print("Tu khoa: "); qlPB.timKiem(sc.nextLine()); break;
-        }
-    }
+    public static void ghiTatCaFile() {
 
-    private static void menuHopDong(DanhSachHopDong qlHD, Scanner sc) {
-        System.out.println("\n--- QUAN LY HOP DONG ---");
-        System.out.println("1. Xuat danh sach | 2. Them | 3. Sua | 4. Xoa | 5. Tim kiem");
-        System.out.print("Chon: ");
-        int c = Integer.parseInt(sc.nextLine());
-        switch (c) {
-            case 1: qlHD.xuat(); break;
-            case 2: qlHD.them(); break;
-            case 3: System.out.print("Nhap ma HD: "); qlHD.sua(sc.nextLine()); break;
-            case 4: System.out.print("Nhap ma HD: "); qlHD.xoa(sc.nextLine()); break;
-            case 5: System.out.print("Tu khoa (Ma HD hoac Ma NV): "); qlHD.timKiem(sc.nextLine()); break;
-        }
-    }
+        System.out.println("\n========== LUU DU LIEU VAO FILE ==========");
 
-    private static void menuChamCong(DanhSachChamCong qlCC, Scanner sc) {
-        System.out.println("\n--- QUAN LY CHAM CONG ---");
-        System.out.println("1. Xuat danh sach | 2. Them | 3. Sua | 4. Xoa | 5. Thong ke thang");
-        System.out.print("Chon: ");
-        int c = Integer.parseInt(sc.nextLine());
-        switch (c) {
-            case 1: qlCC.xuat(); break;
-            case 2: qlCC.them(); break;
-            case 3: System.out.print("Nhap ma Cham Cong: "); qlCC.sua(sc.nextLine()); break;
-            case 4: System.out.print("Nhap ma Cham Cong: "); qlCC.xoa(sc.nextLine()); break;
-            case 5: 
-                System.out.print("Nhap thang can thong ke: "); 
-                qlCC.thongKeTheoThang(Integer.parseInt(sc.nextLine())); 
-                break;
-        }
+        // 5 danh sách ban đầu
+        FileNhanVien.ghiFile(qlNV, "nhanvien.txt");
+        FileChucVu.ghiFile(qlCV, "chucvu.txt");
+        FilePhongBan.ghiFile(qlPB, "phongban.txt");
+        FileHopDong.ghiFile(qlHD, "hopdong.txt");
+        FileChamCong.ghiFile(qlCC, "chamcong.txt");
+
+        // 15 danh sách mới
+        FileHopDongLaoDong.ghiFile(qlHDLD, "hopdonglaodong.txt");
+        FileCaLamViec.ghiFile(qlCa, "calamviec.txt");
+        FileLichLamViec.ghiFile(qlLich, "lichlamviec.txt");
+        FilePhanCongCongViec.ghiFile(qlPC, "phancongcongviec.txt");
+        FileKyLuat.ghiFile(qlKL, "kyluat.txt");
+        FileChiTietLuong.ghiFile(qlCTL, "chitietluong.txt");
+        FileThuong.ghiFile(qlThuong, "thuong.txt");
+        FileBaoHiem.ghiFile(qlBH, "baohiem.txt");
+        FileNghiPhep.ghiFile(qlNP, "nghiphep.txt");
+        FileUngVien.ghiFile(qlUV, "ungvien.txt");
+        FileTinTuyenDung.ghiFile(qlTTD, "tintuyendung.txt");
+        FileHoSoUngTuyen.ghiFile(qlHS, "hosoungtuyen.txt");
+        FileBuoiPhongVan.ghiFile(qlPV, "buoiphongvan.txt");
+        FileKhoaDaoTao.ghiFile(qlKDT, "khoadaotao.txt");
+        FileKetQuaDaoTao.ghiFile(qlKQDT, "ketquadaotao.txt");
+
+        System.out.println("========== LUU FILE HOAN TAT ==========");
     }
 }
