@@ -36,13 +36,12 @@ public class FileNghiPhep {
 
                 if (data.length >= 5) {
                     NghiPhep np = new NghiPhep(
-                            data[0],
-                            data[1],
-                            data[2],
-                            data[3],
-                            Integer.parseInt(data[4])
-                    );
-
+                                data[0],
+                                data[1],
+                                Integer.parseInt(data[2]),
+                                data[3],
+                                data[4]
+                        );
                     ds.themVaoCuoi(np);
                 }
             }
