@@ -35,12 +35,12 @@ public class FileTinTuyenDung {
 
                 if (data.length >= 5) {
                     TinTuyenDung tin = new TinTuyenDung(
-                            data[0],
-                            data[1],
-                            data[2],
-                            data[3],
-                            Double.parseDouble(data[4])
-                    );
+                                    data[0],
+                                    data[1],
+                                    data[2],
+                                    Double.parseDouble(data[3]),
+                                    data[4]
+                            );
 
                     ds.themVaoCuoi(tin);
                 }
