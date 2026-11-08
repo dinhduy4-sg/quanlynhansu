@@ -51,11 +51,11 @@ public class FileKetQuaDaoTao {
                 String[] data = line.split(",", -1);
 
                 KetQuaDaoTao kqdt = new KetQuaDaoTao(
-                        data[0],
-                        data[1],
-                        data[2],
-                        Double.parseDouble(data[3])
-                );
+                            data[0],
+                            data[1],
+                            Double.parseDouble(data[2]),
+                            data[3]
+                    );
 
                 ds.themVaoCuoi(kqdt);
             }
