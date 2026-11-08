@@ -36,8 +36,8 @@ public class FileBaoHiem {
                     BaoHiem bh = new BaoHiem(
                             data[0],
                             data[1],
-                            data[2],
-                            Double.parseDouble(data[3])
+                            Double.parseDouble(data[2]),
+                            data[3]
                     );
 
                     ds.themVaoCuoi(bh);
